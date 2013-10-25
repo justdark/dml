@@ -13,7 +13,7 @@ class KMEANSC:
 	def __init__(self,X,K):
 		self.X=X
 		self.K=K
-		self.label=[]
+		self.labels=[]
 		self.centroids=[]
 		
 		pass
@@ -23,12 +23,12 @@ class KMEANSC:
 			each train change everything
 		'''
 		if (white):
-			self.centroids,self.label=kmeans2(whiten(self.X),self.K,minit='random', missing='warn')
+			self.centroids,self.labels=kmeans2(whiten(self.X),self.K,minit='random', missing='warn')
 		else:
-			self.centroids,self.label=kmeans2(self.X,self.K,minit='random', missing='warn')
+			self.centroids,self.labels=kmeans2(self.X,self.K,minit='random', missing='warn')
 			
 	def result(self):
-		return self.centroids,self.label
+		return self.centroids,self.labels
 		
 	def bfWhiteCen(self):
 		''' if you use whiten on self.X in train,you need this to get the real controids
@@ -36,5 +36,5 @@ class KMEANSC:
 		Wcentroid=self.centroids
 		print Wcentroid
 		for i in range(self.K):
-			Wcentroid[i]=np.sum(self.X[self.label==i],axis=0)/list(self.label).count(i)
+			Wcentroid[i]=np.sum(self.X[self.labels==i],axis=0)/list(self.labels).count(i)
 		return Wcentroid

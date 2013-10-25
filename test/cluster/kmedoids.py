@@ -1,6 +1,6 @@
 from numpy import array
 from scipy.cluster.vq import vq, kmeans, whiten
-from dml.CLUSTER import KMEANSC
+from dml.CLUSTER import KmedoidsC
 features  = array([
 [1,6,11.05],
 [1,7.35,10.6],
@@ -44,8 +44,6 @@ features  = array([
 [1,22.15,7.1],
 [1,21.6,7.8],
 [1,21.7,8.2]])
-a=KMEANSC(features,3)
-a.train(False)
+a=KmedoidsC(features,3)
+a.train()
 print a.labels
-#print a.result()
-#print a.bfWhiteCen()
