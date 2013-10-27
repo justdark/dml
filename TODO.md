@@ -1,17 +1,14 @@
 RECENT TODO List:
 ==
-1.kmeans:
---
-the scipy version use mathmatic way so the input must be a positive definite,change it to my own iteration version
 
-2.spectual cluster
+1.spectual cluster
 --
  learning
 
-3.Decision Tree
+2.Decision Tree
 --
- just classify version,CART algorithm
+ add Pruning
 
-4.k-nearest
+3.k-nearest
 --
  kd tree is required of course
