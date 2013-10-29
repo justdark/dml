@@ -21,6 +21,18 @@ Code Files
 `./test/` -include some test code for DML
 
 ----------------------------------------------
+Class Format
+===
+all class can be used in this way:(LR for example)
+
+but there is still some different Initialization parameters in different class
+
+    a = LRC(train_images,trian_labels,nor=False)
+	a.train(200,True)
+	pred = a.predict(test_images)
+	
+
+----------------------------------------------
 License
 ===
 [WTFPL](http://www.wtfpl.net/)
