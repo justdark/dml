@@ -17,7 +17,7 @@ import datetime
 from ..tool import sigmoid
 from ..tool import normalize,normalize_by_extant
 class NNC:
-	def __init__(self, architecture,option):
+	def __init__(self, architecture,option={}):
 		'''
 			architecture is a list formed by sevral number indicate the NN shape
 			for example:[784 200 10] shows a NN for mnist data with 
@@ -33,7 +33,6 @@ class NNC:
 		self.momentum= 0.5
 		self.output= 'sigm'
 		self.activation ='sigm'
-		self.momentum= 0.5
 		self.weightPenaltyL2 = 0
 		self.nonSparsityPenalty =0
 		self.sparsityTarget=0.05
@@ -59,8 +58,7 @@ class NNC:
 			self.vW.setdefault(i)
 			
 			self.p[i+1] = np.zeros((1,architecture[i+1]))
-			self.W[i]=((np.random.rand(architecture[i]+1,architecture[i+1])-0.5)*2*4*np.sqrt(6/(architecture[i+1]+architecture[i])));
-		
+			self.W[i]=((np.random.rand(architecture[i]+1,architecture[i+1])-0.5)*2*4*np.sqrt(6/(architecture[i+1]+architecture[i]))); 
 			#print architecture[i+1],architecture[i]
 			self.vW[i] = np.zeros(self.W[i].shape)
 			#self.W.append((np.random.rand(architecture[i+1],architecture[i]+1)-0.5)*8/np.sqrt(6/(architecture[i+1]+architecture[i])))
@@ -87,11 +85,16 @@ class NNC:
 			self.d[n-1] =-self.e*self.a[n-1]*(1-self.a[n-1])
 		
 		for i in range(n-2,0,-1):
-			d_act = self.a[i] * (1 - self.a[i])
+			if (self.activation =='sigm'):
+				d_act = self.a[i] * (1 - self.a[i])
+			elif (self.activation =='tanh'):
+				d_act = 1 - self.a[i]**2
 			if (self.nonSparsityPenalty > 0):
 				pi = np.tile(self.p[i], (self.a[i].shape[1], 1))
+				#print pi,'============'
 				#print np.zeros((self.a[i].shape[1],1)).shape,pi.shape
 				sparsityError = np.concatenate((np.zeros((self.a[i].shape[1],1)),self.nonSparsityPenalty * (-self.sparsityTarget / pi + (1 - self.sparsityTarget) / (1 - pi))),axis=1).transpose()
+				
 			#print self.W[i].shape
 			#print self.d[i + 1].shape,'sssss'
 			
@@ -114,7 +117,7 @@ class NNC:
 			
 			#print self.dW[i].shape,'ssssssssssssssssssss'
 			
-	def nnff(self,X,y):
+	def nnff(self,X,y=None):
 		'''
 			X is a matrix with shape N*M ,M is the number of train_case,N is the input size 784
 			y is the labels
@@ -125,14 +128,17 @@ class NNC:
 		M = X.shape[1];
 		X = np.concatenate((np.ones((1,M)),X),axis=0)
 		self.a[0]=X;
-		
 		for i in range(n-1):
 			if i==0:
 				continue
 			#print self.a[i-1].shape
-			#print W[i-1].transpose().shape
-
-			self.a[i]=sigmoid(np.dot(self.W[i-1].transpose(),self.a[i-1]))
+			#print np.dot(self.W[i-1].transpose(),self.a[i-1])
+			if (self.activation =='sigm'):
+				self.a[i]=sigmoid(np.dot(self.W[i-1].transpose(),self.a[i-1]))
+			elif (self.activation=='tanh'):
+				self.a[i]=np.tanh(np.dot(self.W[i-1].transpose(),self.a[i-1]))
+			
+			
 			if (self.dropoutFraction>0):
 				if (self.testing):
 					self.a[i]=self.a[i]*(1-self.dropoutFraction)
@@ -143,7 +149,8 @@ class NNC:
 					
 					self.a[i] = self.a[i]*self.dropOutMask[i];
 			if (self.nonSparsityPenalty>0):
-				self.p[i] = 0.99 * self.p[i] + 0.01*np.mean(self.a[i],axis=1);
+				self.p[i] = 0.8 * self.p[i] + 0.2*np.mean(self.a[i],axis=1);
+				#self.p[i] =np.mean(self.a[i],axis=1)
 
 
 			self.a[i]=np.concatenate((np.ones((1,M)),self.a[i]),axis=0)
@@ -160,12 +167,14 @@ class NNC:
 			self.a[n-1] = np.dot(self.W[n - 2].transpose(),self.a[n - 2])
 		elif (self.output=='sigm'):
 			self.a[n-1] = sigmoid(np.dot(self.W[n - 2].transpose(),self.a[n - 2]))
-		self.e= y-self.a[n-1]
-		if (self.output=='sigm' or self.output=='linear'):
-			self.L = 1/2*(self.e**2).sum() / M; 
-		elif  (self.output=='softmax'):
-			self.L = (-y*np.log(self.a[n-1])).sum() / M;
+		if (y!=None):
 		
+			self.e= y-self.a[n-1]
+			if (self.output=='sigm' or self.output=='linear'):
+				self.L = 1/2*(self.e**2).sum() / M; 
+			elif  (self.output=='softmax'):
+				self.L = (-y*np.log(self.a[n-1])).sum() / M;
+		#print self.L
 	def train(self,train_X,train_y,opts):
 		
 		'''

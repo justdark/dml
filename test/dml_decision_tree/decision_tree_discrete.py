@@ -41,6 +41,5 @@ y=np.array([
 prop=np.zeros((5,1))
 prop[4]=1
 a=DTC(X,y,prop)
-
 a.train()
 print a.pred([[0,0,0,0,3.0],[2,1,0,1,2]])
