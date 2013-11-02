@@ -28,7 +28,9 @@ Class Format
 ===
 all class can be used in this way:(LR for example)
 
-but there is still some different Initialization parameters in different class
+but there is still some different Initialization parameters in different class,also the predict function
+
+sorry for this but some class use `pred()` and NN use `nnpred()`
 
     a = LRC(train_images,trian_labels,nor=False)
 	a.train(200,True)
