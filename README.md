@@ -18,6 +18,9 @@ Code Files
 
 `./dml/ClUSTER` -some cluster algorithm,inculde kmeans\kmedoids\spectralCluster(todo)
 
+
+`./dml/ADAB` -the adaboost algorithm
+
 `./test/` -include some test code for DML
 
 ----------------------------------------------
