@@ -18,8 +18,9 @@ Code Files
 
 `./dml/ClUSTER` -some cluster algorithm,inculde kmeans\kmedoids\spectralCluster(todo)
 
-
 `./dml/ADAB` -the adaboost algorithm
+
+`./dml/tool` -include some basic tools for computing
 
 `./test/` -include some test code for DML
 
@@ -36,6 +37,8 @@ sorry for this but some class use `pred()` and NN use `nnpred()`
 	a.train(200,True)
 	pred = a.predict(test_images)
 	
+
+for the cluster method,you can use `a.labels` or `a.result()` to get the final result
 
 ----------------------------------------------
 Install

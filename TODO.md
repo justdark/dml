@@ -12,3 +12,7 @@ RECENT TODO List:
 3.k-nearest
 --
  kd tree is required of course
+
+4.Naive Bayesian Model
+--
+to do

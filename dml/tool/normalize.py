@@ -3,8 +3,22 @@ import numpy as np
 import scipy as sp
 __all__ = [
 'normalize',
-'disnormalize'
+'disnormalize',
+'normalize_by_extant',
+'featurenormal'
 ]
+def featurenormal(X,axis=0):
+	'''
+	   X is N*M
+	   axis==0: columns
+	   axis==1: rows
+	'''
+	mu=np.array(X).mean(not axis)
+	X_norm=X-mu.reshape(X.shape[0],-1)
+	sigma=np.std(X_norm,axis=not axis)
+	X_norm=X_norm/sigma.reshape(X.shape[0],-1)
+
+	return X_norm,mu,sigma
 
 def normalize(X,Ub=0,Lb=1,order=1):
 	'''

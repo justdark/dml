@@ -4,13 +4,18 @@
 
 import numpy as np
 import scipy as sp
-import pylab as py
 from .sigmoid import sigmoid
-from .normalize import normalize,disnormalize,normalize_by_extant
+from .normalize import normalize,disnormalize,normalize_by_extant,featurenormal
 from .sign import sign
+from .pca import pca,projectData,recoverData
+from .displayData import  displayData
 __all__ = ['sigmoid',
 'normalize',
 'disnormalize',
 'normalize_by_extant',
-'sign'
+'sign',
+'pca',
+'projectData',
+'recoverData',
+'displayData'
 ]
