@@ -16,9 +16,11 @@ Code Files
 
 `./dml/DT` -Decision Tree , CART algorithm
 
-`./dml/ClUSTER` -some cluster algorithm,inculde kmeans\kmedoids\spectralCluster(todo)
+`./dml/ClUSTER` -some cluster algorithm,inculde kmeans \ kmedoids \ spectralCluster
 
 `./dml/ADAB` -the adaboost algorithm
+
+`./dml/KNN` -the k-Nearest Neighbor algorithm(kd-tree BBF implementing)
 
 `./dml/tool` -include some basic tools for computing
 
