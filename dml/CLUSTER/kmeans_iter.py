@@ -13,11 +13,11 @@ from scipy.cluster.vq import  kmeans2,whiten
 '''
 class KMEANSC:
 	def __init__(self,X,K):
-		self.X=np.array(X)
+		self.X=np.array(X).transpose()
 		self.K=np.array(K)
 		self.N=X.shape[0]
 		self.labels = np.zeros(self.N, dtype=int)
-		self.centroids=np.array(random.sample(X, K))
+		self.centroids=np.array(random.sample(self.X, K))
 		self.J=self.calcJ()
 		pass
 	def calcJ(self):

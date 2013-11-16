@@ -18,13 +18,13 @@ class LRC:
 		http://ufldl.stanford.edu/wiki/index.php/Softmax_Regression
 	'''
 	def __init__(self, X, y,lam=0.0001,nor=True):
-		self.X = X
-		self.y = y	
+		self.X = np.array(X)
+		self.y = np.array(y).flatten(1)	
 		(self.N,self.M)=X.shape
 		self.nor=nor
 		if (nor):
 			self.X,self.scale,self.dvi= normalize(self.X)
-		print "dsaasd"
+		assert self.X.shape[1]==self.y.size
 		self.lam = lam;
 		self.label,self.y=np.unique(y,return_inverse=True)
 		self.classNum =self.label.size

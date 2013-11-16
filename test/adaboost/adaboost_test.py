@@ -99,4 +99,5 @@ y=np.array([
 [1]]).transpose()
 a= ADABC(X,y)
 a.train(5)
-
+print a.pred([[0.55,1.1,5.35],
+[4.4,2.8,0.9]])

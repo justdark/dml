@@ -22,10 +22,8 @@ class KNNC:
 		'''
 		self.X = np.array(X)
 		if labels==None:
-			self.labels=np.zeros((1,self.X.shape[1]))
-		else:
-			self.labels = np.array(labels).flatten(1)
-		assert self.X.shape[1]==self.labels.size
+			np.zeros((1,self.X.shape[1]))
+		self.labels = np.array(labels)
 		self.K = K
 		self.dist = dist
 		self.KDTrees=KDTree(X,labels,self.dist)

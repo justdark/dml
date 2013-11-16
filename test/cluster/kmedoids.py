@@ -43,7 +43,7 @@ features  = array([
 [1,24.2,7.95],
 [1,22.15,7.1],
 [1,21.6,7.8],
-[1,21.7,8.2]])
+[1,21.7,8.2]]).transpose()
 a=KmedoidsC(features,3)
 a.train()
 print a.labels

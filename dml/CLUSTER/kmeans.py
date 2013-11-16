@@ -11,7 +11,7 @@ from scipy.cluster.vq import  kmeans2,whiten
 '''
 class KMEANSC:
 	def __init__(self,X,K):
-		self.X=X
+		self.X=np.array(X)
 		self.K=K
 		self.labels=[]
 		self.centroids=[]

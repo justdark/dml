@@ -9,16 +9,16 @@ def EuclidDistance(x,y):
 class KmedoidsC:
 	def __init__(self,X,K,dist=EuclidDistance):
 		'''
-			each row of X is a dot
+			X is N*M  matrix and M indicate the number of train case
 			K is the number of class you want to cluster
 			dis is a function
 		'''
 		self.dist=dist
-		self.X=np.array(X)
+		self.X=np.array(X).transpose()
 		self.K=np.array(K)
 		self.N=X.shape[0]
 		self.labels = np.zeros(self.N, dtype=int)
-		self.centroids=np.array(random.sample(X, K))
+		self.centroids=np.array(random.sample(self.X, K))
 		self.J=self.calcJ()
 	def calcJ(self):
 		sum=0

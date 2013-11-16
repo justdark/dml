@@ -76,17 +76,17 @@ features=array([
 [12.45,15.35],
 [13.05,15.4],
 [13.85,15.25]]
-)
+).transpose()
 a=KMEANSC(features,2)
 a.train(180)
 print a.result()
-for i in range(features.shape[0]):
+for i in range(features.shape[1]):
 	if  a.labels[i]==0:
-		plt.plot(features[i][0],features[i][1],'or')
+		plt.plot(features[0][i],features[1][i],'or')
 	elif a.labels[i]==1:
-		plt.plot(features[i][0],features[i][1],'ob')
+		plt.plot(features[0][i],features[1][i],'ob')
 	else:
-		plt.plot(features[i][0],features[i][1],'oy')
+		plt.plot(features[0][i],features[1][i],'oy')
 plt.show()
 #print a.result()
 #print a.bfWhiteCen()

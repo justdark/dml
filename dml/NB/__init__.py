@@ -5,7 +5,8 @@
 import numpy as np
 import scipy as sp
 import pylab as py
+from .naiveBayesian import NBC
 
 
-__all__ = ['LR','NN','CLUSTER','ADAB','DT','KNN','tool'
+__all__ = ['NBC'
 ]

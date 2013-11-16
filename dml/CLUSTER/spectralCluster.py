@@ -31,7 +31,7 @@ class SCC:
 	def train(self,maxiter=100,threshold=0.1):
 		v,self.T=eig(self.L)
 		#print v
-		self.km=KMEANSC(self.T[:,1:self.K],self.K)
+		self.km=KMEANSC(self.T[:,1:self.K].transpose(),self.K)
 		self.km.train(maxiter,threshold)
 		self.labels=self.km.labels
 	def distmat(self,X,Y):

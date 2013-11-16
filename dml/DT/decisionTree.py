@@ -16,9 +16,9 @@ class DTC:
 	def __init__(self,X,y,property=None):
 		'''
 			this is the class of Decision Tree
-			X is a M*N array where M stands for the training case number
+			X is a N*M array where M stands for the training case number
 								   N is the number of features
-			y is a M*1 vector
+			y is a M length vector
 			property is a binary vector of size N
 				property[i]==0 means the the i-th feature is discrete feature,otherwise it's continuous
 				in default,all feature is discrete
@@ -31,8 +31,9 @@ class DTC:
 			so remember:
 			if you have continous parameter,DON'T PUT any STRING IN X  !!!!!!!!
 		'''
-		self.X=np.array(X)
-		self.y=np.array(y)
+		self.X=np.array(X).transpose()
+		self.y=np.array(y).flatten(1)
+
 		self.feature_dict={}
 		self.labels,self.y=np.unique(y,return_inverse=True)
 		self.DT=list()
@@ -43,10 +44,11 @@ class DTC:
 			
 		for i in range(self.X.shape[1]):
 			self.feature_dict.setdefault(i)
-			self.feature_dict[i]=np.unique(X[:,i])
-
-		if (X.shape[0] != y.shape[0] ):
+			self.feature_dict[i]=np.unique(self.X[:,i])
+			
+		if (self.X.shape[0] != self.y.size ):
 			print "the shape of X and y is not right"
+			assert self.X.shape[0]==self.y.size
 			
 		for i in range(self.X.shape[1]):
 			for j in self.feature_dict[i]:
@@ -72,8 +74,7 @@ class DTC:
 		min=10000.0
 		m_i,m_j=0,0
 		if (np.unique(y).size<=1):
-
-			return (self.labels[y[0]])
+			return (y[0])
 		for i in range(self.X.shape[1]):
 			for j in self.feature_dict[i]:
 				p=self.Gini(X,y,i,j)
@@ -99,7 +100,7 @@ class DTC:
 		print self.DT
 		
 	def pred(self,X):
-		X=np.array(X)
+		X=np.array(X).transpose()
 		  
 		result = np.zeros((X.shape[0],1))
 		for i in range(X.shape[0]):
