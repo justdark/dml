@@ -6,6 +6,6 @@ RECENT TODO List:
 --
  add Pruning
 
-2.Naive Bayesian Model
+2.TO BE CONTINUE
 --
-to do
+.........................

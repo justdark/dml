@@ -23,6 +23,8 @@ Code Files
 
 `./dml/NB`  -the **naive Bayesian** support both  continous and descrete features
 
+`./dml/SVM` -the basic binary **Support Vector Machine**
+
 `./dml/tool` -include some basic tools for computing
 
 `./test/` -include some **test code** for DML
