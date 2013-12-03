@@ -169,7 +169,7 @@ class SVMC:
 		for t in self.supportVec:
 			w+=self.alpha[t]*self.y[t]*self.X[:,t].flatten(1)
 		w=w.reshape(1,w.size)
-		print np.sum(sign(np.dot(w,self.X)+self.b).flatten(1)!=self.y),"errrr"
+		#print np.sum(sign(np.dot(w,self.X)+self.b).flatten(1)!=self.y),"errrr"
 		#print w,self.b
 		x1=0
 		y1=-self.b/w[0][1]
@@ -177,7 +177,7 @@ class SVMC:
 		x2=-self.b/w[0][0]
 		plt.plot([x1+x1-x2,x2],[y1+y1-y2,y2])
 		#plt.plot([x1+x1-x2,x2],[y1+y1-y2-1,y2-1])
-		plt.axis([0,30,0,30])
+		plt.axis([0,30,0,15])
 
 		for i in range(self.M):
 			if  self.y[i]==-1:

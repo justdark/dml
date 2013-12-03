@@ -5,4 +5,4 @@ import warnings
 def sigmoid(x):
 	#print x,'========='
 	#print "======================="
-	return 1/(1+np.float64(np.exp(-x)));
+	return 1/(1+np.exp(-x));

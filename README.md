@@ -1,4 +1,4 @@
-DML
+iDML
 ===
 
 D's Machine Learning is a machine learning toolkit for python,focus on rightness but efficiency
@@ -24,6 +24,8 @@ Code Files
 `./dml/NB`  -the **naive Bayesian** support both  continous and descrete features
 
 `./dml/SVM` -the basic binary **Support Vector Machine**
+
+`./dml/CNN` -the simple **Convolutional Neural Networks**
 
 `./dml/tool` -include some basic tools for computing
 
@@ -63,7 +65,9 @@ This packages uses setuptools, which is the default way of installing python mod
 ----------------------------------------------
 Warning
 ===
-only python 2 is supported,sorry for the python 3 user.
+* only python 2 is supported,sorry for the python 3 user.
+
+* some method from numpy and  scipy will report warning because of their version
 
 ----------------------------------------------
 License

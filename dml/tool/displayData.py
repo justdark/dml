@@ -21,5 +21,10 @@ def displayData(X,size=None,showit=False):
 	if showit:
 		fig = plt.figure()
 		plt.imshow(bigimg , cmap='gray')
+		plt.show()
 	else:
 		return bigimg
+def showimage(X):
+	fig = plt.figure()
+	plt.imshow(X , cmap='gray')
+	plt.show()

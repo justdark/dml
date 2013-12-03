@@ -8,8 +8,9 @@ from .sigmoid import sigmoid
 from .normalize import normalize,disnormalize,normalize_by_extant,featurenormal
 from .sign import sign
 from .pca import pca,projectData,recoverData
-from .displayData import  displayData
+from .displayData import  displayData,showimage
 from .heap import Heap
+from .expand import expand
 __all__ = ['sigmoid',
 'normalize',
 'disnormalize',
@@ -19,5 +20,7 @@ __all__ = ['sigmoid',
 'projectData',
 'recoverData',
 'displayData',
-'Heap'
+'Heap',
+'expand',
+'showimage'
 ]
