@@ -61,18 +61,12 @@ layers=[LayerC('i'),
 		LayerC('s',scale=2),
 		LayerC('c',out=12,kernelsize=5),
 		LayerC('s',scale=2)]
-
-print groundTruth.argmax(axis=0)
-
 opts={}
-print groundTruth.shape
-
 opts['batchsize']=40
 opts['numepochs']=1
 opts['alpha']=1
 
 a=CNNC(X,groundTruth,layers,opts)
-
 #a.gradcheck(test_x[1:3,:,:],test_groundTruth[:,1:3])
 a.train()
 a.test(test_x,test_groundTruth)

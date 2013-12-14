@@ -218,10 +218,13 @@ class CNNC:
 				for j in range(len(self.layers[l].a)):
 					for i in range(len(self.layers[l-1].a)):
 						self.layers[l].k[i][j]-=alpha*self.layers[l].dk[i][j]
+						#print 'alpha*self.layers[l].db[j]:  ',self.layers[l].dk[i][j]
 					self.layers[l].b[j]-=alpha*self.layers[l].db[j]
+					#print 'self.layers[l].db[j]:  ',self.layers[l].db[j]
 				pass
 			if self.layers[l].types=='s':
 				for j in range(len(self.layers[l].a)):
+					#print 'self.layers[l].dBeta[j]',self.layers[l].dBeta[j]
 					self.layers[l].b[j]-=alpha*self.layers[l].dBeta[j]
 					self.layers[l].Beta[j]-=alpha*self.layers[l].dBeta[j]
 		self.ffW-=alpha*self.dffW

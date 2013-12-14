@@ -27,6 +27,8 @@ Code Files
 
 `./dml/CNN` -the simple **Convolutional Neural Networks**
 
+`./dml/CF` -some **Collaborative Filtering Algorithm** implement,include **item-based \ SVD \ RBM**
+
 `./dml/tool` -include some basic tools for computing
 
 `./test/` -include some **test code** for DML
