@@ -15,7 +15,7 @@ Code Files
 
 `./dml/DT` -**Decision Tree** , CART algorithm
 
-`./dml/ClUSTER` -some cluster algorithm,inculde **kmeans \ kmedoids \ spectralCluster**
+`./dml/ClUSTER` -some cluster algorithm,inculde **kmeans \ kmedoids \ spectralCluster \ Hierarchical Cluster**
 
 `./dml/ADAB` -the **adaboost** algorithm
 
