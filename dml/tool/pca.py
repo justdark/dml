@@ -10,12 +10,13 @@ def pca(X,axis=0):
 		Returns the eigenvectors U, the eigenvalues (on diagonal) in S
 	'''
 	X_s=np.array(X)
+	X_s = (X_s.transpose()-np.mean(X, axis=1)).transpose()
 	if axis==0:
 		N,M=X_s.shape
-		Sigma=np.dot(X_s,X_s.transpose())/M
+		Sigma=np.dot(X_s,X_s.transpose())/(M-1)
 	else:
 		M,N=X_s.shape
-		Sigma=np.dot(X_s.transpose(),X_s)/M
+		Sigma=np.dot(X_s.transpose(),X_s)/(M-1)
 	U,S,V = sp.linalg.svd(Sigma);
 	return U,S
 
