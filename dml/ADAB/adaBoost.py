@@ -34,7 +34,7 @@ class ADABC:
 			self.G[i]=self.Weaker(self.X,self.y)
 			e=self.G[i].train(self.W)
 			#print self.G[i].t_val,self.G[i].t_b,e
-			self.alpha[i]=1/2*np.log((1-e)/e)
+			self.alpha[i]=float(1.0 / 2 * np.log((1 - e) / e))
 			#print self.alpha[i]
 			sg=self.G[i].pred(self.X)
 			Z=self.W*np.exp(-self.alpha[i]*self.y*sg.transpose())
