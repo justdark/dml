@@ -12,7 +12,7 @@ class LRC:
 		X	-is a N*M matrix  
 		y	-is a M  vector 
 		lam	-is the parameter lambda for LR penalty
-		actualy it's a softmax......=.=
+		actually it's a softmax......=.=
 		but they are same when the class_number is 2
 		also see ufldl:
 		http://ufldl.stanford.edu/wiki/index.php/Softmax_Regression

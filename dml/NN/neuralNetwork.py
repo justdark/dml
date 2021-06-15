@@ -3,7 +3,7 @@
 	DeepLearnToolbox(https://github.com/rasmusbergpalm/DeepLearnToolbox)
 	I think the whole architecture of it is clear and easy to understand
 	so I copy it to python
-	I also recommand UFLDL(http://ufldl.stanford.edu/wiki/index.php/UFLDL_Tutorial)
+	I also recommend UFLDL(http://ufldl.stanford.edu/wiki/index.php/UFLDL_Tutorial)
 	to learn Neural Network
 	
 	TODO:SAE,DAE and so on

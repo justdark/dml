@@ -11,7 +11,7 @@ Code Files
 
 `./dml/NN` -the code of **Neural NetWorks**
 
-`./dml/LR` -**Logistic Regression**,actualy It's **softmax**
+`./dml/LR` -**Logistic Regression**,actually It's **softmax**
 
 `./dml/DT` -**Decision Tree** , CART algorithm
 
@@ -21,7 +21,7 @@ Code Files
 
 `./dml/KNN` -the **k-Nearest Neighbor** algorithm(kd-tree BBF implementing)
 
-`./dml/NB`  -the **naive Bayesian** support both  continous and descrete features
+`./dml/NB`  -the **naive Bayesian** support both  continuous and descrete features
 
 `./dml/SVM` -the basic binary **Support Vector Machine**
 

@@ -29,7 +29,7 @@ class DTC:
 			so If your X have some string parameter,all thing will translate to string
 			in this situation,you can't have continuous parameter
 			so remember:
-			if you have continous parameter,DON'T PUT any STRING IN X  !!!!!!!!
+			if you have continuous parameter,DON'T PUT any STRING IN X  !!!!!!!!
 		'''
 		self.X=np.array(X).transpose()
 		self.y=np.array(y).flatten(1)

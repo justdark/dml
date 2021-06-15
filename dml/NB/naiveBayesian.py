@@ -9,10 +9,10 @@ class NBC:
 	def __init__(self,X,y,Indicator=None):
 		'''
 		 X 			 a N*M matrix where M is the train case number
-		 			 should be number both continous and descret feature
+		 			 should be number both continuous and discreet feature
 		 y			 class label for classification
-		 Indicator 	 show whether the feature is continous(0) or descret(1)
-		             continous in default
+		 Indicator 	 show whether the feature is continuous(0) or discreet(1)
+		             continuous in default
 
 		'''
 		self.X=np.array(X)
