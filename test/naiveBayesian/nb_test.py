@@ -5,7 +5,7 @@ import numpy as np
 import scipy as sp
 from dml.NB import NBC
 '''
-  Example of descret data from  <统计学习方法>
+  Example of discreet data from  <统计学习方法>
   S=0
   M=1
   L=2

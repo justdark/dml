@@ -5,7 +5,7 @@ from scipy.signal import convolve as conv
 from dml.tool import sigmoid,expand,showimage
 from numpy import rot90
 '''
-	this algorithm have refered to the DeepLearnToolBox(https://github.com/rasmusbergpalm/DeepLearnToolbox)
+	this algorithm have referred to the DeepLearnToolBox(https://github.com/rasmusbergpalm/DeepLearnToolbox)
 	also:[1]:"Notes on Convolutional Neural Networks" Jake Bouvrie 2006 - How to implement CNNs
 	I want to implement as [1] described,where the subsampling layer have sigmoid function
 	 but finally it does not converge,but I can pass the gradcheck!!
